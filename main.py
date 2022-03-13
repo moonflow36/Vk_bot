@@ -9,7 +9,7 @@ temi_7_class = ["Прямая и отрезок", "Луч", "Угол", "Сра�
                 "Третий признак равенства треугольника",
                 "Признаки параллельности двух прямых", "Аксиома параллельных прямых", "Сумма углов треугольника",
                 "Соотношения между сторонами и углами треугольника",
-                "Прямоугольные треугольники", "Построение треугольника по трём элементам"
+                "Прямоугольные треугольники", "Построение треугольника по трём элементам", "Тест"
                 ]
 spisok_so_ssilkami_7_class = ["https://www.youtube.com/watch?v=M9OvFov68bU",
                               "https://www.youtube.com/watch?v=tHMG42KvOw0",
@@ -101,6 +101,7 @@ def send_message(id, message):
 vk_session = vk_api.VkApi(token="71219b024a51cdec8451d097a39c9aa93e3fdd8e43e2979e757c01a9736a21a5f227db502da007da9e833")
 longpoll = VkLongPoll(vk_session)
 
+print(len(temi_7_class), len(spisok_so_ssilkami_7_class))
 for event in longpoll.listen():
     if event.type == VkEventType.MESSAGE_NEW and event.to_me and event.text:
         reseived_messange = event.text
@@ -113,11 +114,8 @@ for event in longpoll.listen():
             send_message(sender, "До скорого")
         elif reseived_messange == "Документация по 7 классу":
             i = 3
+            o = []
             for io in range(len(spisok_so_ssilkami_7_class)):
-                o = []
                 tema_i_video_7_class = temi_7_class[io] + ":" + " " + spisok_so_ssilkami_7_class[io]
                 o.append(tema_i_video_7_class)
-                send_message(sender, o)
-
-
-
+            send_message(sender, '\n'.join(o))
