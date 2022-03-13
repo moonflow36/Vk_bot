@@ -98,7 +98,7 @@ def send_message(id, message):
                                             "keyboard": keyboard.get_keyboard()})
 
 
-vk_session = vk_api.VkApi(token="71219b024a51cdec8451d097a39c9aa93e3fdd8e43e2979e757c01a9736a21a5f227db502da007da9e833")
+vk_session = vk_api.VkApi(token="71219b024a51cdec8451d097a39c9736a21a5f227db502da007da9e833")
 longpoll = VkLongPoll(vk_session)
 
 print(len(temi_7_class), len(spisok_so_ssilkami_7_class))
